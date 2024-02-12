@@ -98,39 +98,35 @@ async function main() {
         entry: "I made a great trade today",
         userId: alice.id,
         tradeId: trades[0].id,
-      }
+      },
       {
         entry: "I made a great trade today",
         userId: alice.id,
         tradeId: trades[1].id,
-      }
+      },
       {
         entry: "I made a great trade today",
         userId: bob.id,
         tradeId: trades[2].id,
-      }
+      },
       {
         entry: "I made a great trade today",
         userId: bob.id,
         tradeId: trades[3].id,
-      }
+      },
       {
         entry: "I made a great trade today",
         userId: carol.id,
         tradeId: trades[4].id,
-      }
+      },
       {
         entry: "I made a great trade today",
         userId: carol.id,
         tradeId: trades[5].id,
-      }
-
-    ]
-
+      },
+    ],
   });
 }
-
-
 
 main()
   .then(async () => {
