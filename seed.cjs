@@ -42,7 +42,7 @@ async function main() {
         exitPrice: 4030,
         callOrPut: "call",
         date: new Date(),
-        userId: alice.id,
+        user_id: alice.id,
       },
       {
         ticker: "NQ",
@@ -51,7 +51,7 @@ async function main() {
         exitPrice: 13010,
         callOrPut: "put",
         date: new Date(),
-        userId: alice.id,
+        user_id: alice.id,
       },
       {
         ticker: "ES",
@@ -60,7 +60,7 @@ async function main() {
         exitPrice: 4030,
         callOrPut: "call",
         date: new Date(),
-        userId: bob.id,
+        user_id: bob.id,
       },
       {
         ticker: "NQ",
@@ -69,7 +69,7 @@ async function main() {
         exitPrice: 13010,
         callOrPut: "put",
         date: new Date(),
-        userId: bob.id,
+        user_id: bob.id,
       },
       {
         ticker: "ES",
@@ -78,7 +78,7 @@ async function main() {
         exitPrice: 4030,
         callOrPut: "call",
         date: new Date(),
-        userId: carol.id,
+        user_id: carol.id,
       },
       {
         ticker: "NQ",
@@ -87,7 +87,7 @@ async function main() {
         exitPrice: 13010,
         callOrPut: "put",
         date: new Date(),
-        userId: carol.id,
+        user_id: carol.id,
       },
     ],
   });

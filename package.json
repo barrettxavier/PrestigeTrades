@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "flush": "npx prisma db push --force-reset",
-    "seed": "npm run flush && node seed.js",
+    "seed": "npm run flush && node seed.cjs",
     "dev": "nodemon src/server/main.cjs -w src/server",
     "start": "NODE_ENV=production node src/server/main.js",
     "build": "vite build"
@@ -21,6 +21,8 @@
     "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.22.0",
+    "react-router-dom": "^6.22.0",
     "vite-express": "*"
   },
   "devDependencies": {
