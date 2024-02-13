@@ -5,13 +5,19 @@ export default {
     extend: {
       colors: {
         slate: {
-          customDark: "#01060a",
-          customMedium: "#01090f",
-          customMediumLight: "#041422",
-          customMediumAccent: "#0a1f31",
+          customDark: "#01090f",
+          customMedium: "#001823",
+          customMediumLight: "#19485D",
+          customMediumAccent: "#00293c",
           customLight: "#0b2e3e",
-          customAccent: "#305768",
+          customAccent: "#27AEAE",
         },
+      },
+      breakpoints: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
     },
   },

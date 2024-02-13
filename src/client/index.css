@@ -4,9 +4,17 @@
 
 body {
   color: white;
+  cursor: default;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 @layer components {
+  .button_default {
+    @apply bg-slate-customAccent  px-8 py-2 rounded-md cursor-pointer text-xl items-center flex w-fit;
+  }
+
   .center {
     @apply flex items-center justify-center;
   }
@@ -16,16 +24,31 @@ body {
   }
 
   .profile-card-small {
-    @apply bg-blue-200 shadow-lg rounded-full overflow-hidden w-10 h-10;
+    @apply bg-blue-200 shadow-lg rounded-full overflow-hidden w-8 h-8;
   }
 
   .buttonNav {
-    @apply hover:bg-slate-customMediumAccent px-4 py-2 rounded-md hover:translate-x-4 duration-500 cursor-pointer  text-xl text-slate-400 items-center flex w-[84%];
+    @apply hover:bg-slate-customAccent px-4 py-2 rounded-md hover:translate-x-4 duration-500 cursor-pointer  text-xl text-slate-400 items-center flex lg:w-44;
   }
 
   .stat-card {
-    @apply bg-slate-customMediumLight border-2 border-slate-customMediumAccent w-[25%] h-full rounded-lg px-4 py-2 flex flex-col justify-center;
+    @apply bg-slate-customMedium border-2 border-slate-customMediumAccent w-full rounded-lg px-4 py-2 flex flex-col justify-center;
   }
+
+  .center-horizontal {
+    @apply flex items-center;
+  }
+
+  .faded-text {
+    @apply text-slate-400;
+  }
+}
+
+.buttonNav:focus,
+.buttonNav:active {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* Example focus style */
+  transform: translateX(4px); /* Example active style */
 }
 
 h1 {

@@ -14,7 +14,7 @@ const DateComponent = () => {
 
   return (
     <div>
-      <p className="text-slate-400">{formattedDate}</p>
+      <p className="text-slate-400 hidden md:inline-block">{formattedDate}</p>
     </div>
   );
 };

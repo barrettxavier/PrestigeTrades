@@ -1,5 +1,5 @@
 import { Home, BarChart2, ScrollText, Waypoints } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import Link from "./Link";
 
 const NavLinks = () => {
