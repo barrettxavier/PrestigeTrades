@@ -5,7 +5,7 @@ import ProfilePic from "../components/Side Nav/ProfilePic";
 
 const NavBar = () => {
   return (
-    <div className="relative w-24 lg:w-[30%] max-w-[360px] lg:px-10 h-screen bg-slate-customMedium border-r-2 border-slate-700">
+    <div className="relative w-24 lg:w-[30%] max-w-[280px] lg:px-6 h-screen bg-slate-customMedium border-r-2 border-slate-customMediumLight">
       <ProfilePic />
       <NavLinks />
       <Logout />

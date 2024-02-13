@@ -2,8 +2,8 @@ import React from "react";
 
 const Logout = () => {
   return (
-    <div className="absolute bottom-20 w-full">
-      <button className="bg-slate-customMediumLight duration-300 hover:bg-slate-customMediumAccent px-4 py-2 rounded-md cursor-pointer text-xl text-slate-400 items-center flex">
+    <div className="w-full flex justify-center">
+      <button className="absolute bottom-14 duration-300 hover:bg-slate-customMediumAccent px-4 py-2 rounded-md cursor-pointer items-center flex text-md">
         Logout
       </button>
     </div>

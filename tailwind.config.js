@@ -5,10 +5,10 @@ export default {
     extend: {
       colors: {
         slate: {
-          customDark: "#031d2a",
-          customMedium: "#042230",
-          customMediumLight: "#052b3d",
-          customMediumAccent: "#08374d",
+          customDark: "#01060a",
+          customMedium: "#01090f",
+          customMediumLight: "#041422",
+          customMediumAccent: "#0a1f31",
           customLight: "#0b2e3e",
           customAccent: "#305768",
         },

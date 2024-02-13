@@ -12,11 +12,19 @@ body {
   }
 
   .profile-card {
-    @apply bg-blue-200 shadow-lg rounded-full overflow-hidden w-36 h-36;
+    @apply bg-blue-200 shadow-lg rounded-full overflow-hidden w-28 h-28;
+  }
+
+  .profile-card-small {
+    @apply bg-blue-200 shadow-lg rounded-full overflow-hidden w-10 h-10;
   }
 
   .buttonNav {
     @apply hover:bg-slate-customMediumAccent px-4 py-2 rounded-md hover:translate-x-4 duration-500 cursor-pointer  text-xl text-slate-400 items-center flex w-[84%];
+  }
+
+  .stat-card {
+    @apply bg-slate-customMediumLight border-2 border-slate-customMediumAccent w-[25%] h-full rounded-lg px-4 py-2 flex flex-col justify-center;
   }
 }
 
@@ -33,5 +41,9 @@ h3 {
 }
 
 p {
-  @apply text-base;
+  font-size: medium;
+}
+
+a {
+  font-size: medium;
 }
