@@ -5,12 +5,14 @@ export default {
     extend: {
       colors: {
         slate: {
-          customDark: "#01090f",
+          customDark: "#00111a",
           customMedium: "#001823",
           customMediumLight: "#19485D",
           customMediumAccent: "#00293c",
           customLight: "#0b2e3e",
           customAccent: "#27AEAE",
+          customBorder: "#00283a",
+          customShade: "#002231",
         },
       },
       breakpoints: {
@@ -22,4 +24,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: "class",
 };

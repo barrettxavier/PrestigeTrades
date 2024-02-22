@@ -1,7 +1,11 @@
 import React from "react";
 
-const NetDailyPnl = () => {
-  return <div className="stat-card">Net Daily PnL</div>;
+const NetDailyPnl = ({ darkMode }) => {
+  return (
+    <div className="display-card-light dark:display-card-dark h-[500px]">
+      Net Daily PnL
+    </div>
+  );
 };
 
 export default NetDailyPnl;

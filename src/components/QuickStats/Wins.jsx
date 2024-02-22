@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Wins = ({ title, subheading }) => {
+const Wins = ({ title, trades, pnlTotal }) => {
+  const [avgWinningTrade, setAvgWinningTrade] = useState(0);
+  const [numOfWinningTrades, setNumOfWinningTrades] = useState(0);
+  const [winPercent, setWinPercent] = useState(0);
+
+  useEffect(() => {
+    const winningTrades = trades.filter(
+      (trade) =>
+        (trade.callOrPut === "CALL" && trade.exitPrice > trade.entryPrice) ||
+        (trade.callOrPut === "PUT" && trade.exitPrice < trade.entryPrice)
+    );
+    setNumOfWinningTrades(winningTrades.length);
+  }, [trades]);
+
+  useEffect(() => {
+    if (numOfWinningTrades > 0) {
+      const avgWinningTrade = pnlTotal / numOfWinningTrades;
+      setAvgWinningTrade(avgWinningTrade);
+    } else {
+      setAvgWinningTrade(0);
+    }
+    const winPercent = (numOfWinningTrades / trades.length) * 100;
+    setWinPercent(winPercent);
+  }, [numOfWinningTrades, pnlTotal]);
+
   return (
-    <div className="stat-card">
-      <h4>{title}</h4>
-      <h2>$</h2>
-      <p>{subheading}</p>
+    <div className="relative stat-card-light dark:stat-card-dark">
+      <h3>{title}</h3>
+      <h2 className="py-2" style={{ color: "green" }}>
+        ${avgWinningTrade.toFixed(2)}
+      </h2>
+
+      <p>
+        <p>Trades won: {numOfWinningTrades}</p>
+      </p>
+      <h2
+        className="text-4xl absolute right-4 bottom-auto"
+        style={{ color: "green" }}
+      >
+        {winPercent.toFixed(0)}%
+      </h2>
     </div>
   );
 };

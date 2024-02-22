@@ -1,14 +1,18 @@
 import { Home, BarChart2, ScrollText, Waypoints } from "lucide-react";
-import React, { useState } from "react";
-import Link from "./Link";
+import LinkButton from "./Link";
 
-const NavLinks = () => {
+const NavLinks = ({ darkMode }) => {
   return (
-    <ul className="flex flex-col gap-4 my-8">
-      <Link link="Dashbord" icon={Home} url="/" />
-      <Link link="Daily Journal" icon={BarChart2} />
-      <Link link="Trade Log" icon={ScrollText} />
-      <Link link="Strategies" icon={Waypoints} />
+    <ul className="flex flex-col gap-2 my-8">
+      <LinkButton
+        name="Dashbord"
+        icon={Home}
+        url="/dashboard"
+        darkMode={darkMode}
+      />
+      <LinkButton name="Daily Journal" icon={BarChart2} url="/dailyjournal" />
+      <LinkButton name="Trade Log" icon={ScrollText} url="/tradelog" />
+      <LinkButton name="Strategies" icon={Waypoints} />
     </ul>
   );
 };

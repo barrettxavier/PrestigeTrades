@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: rgb(0, 6, 41);
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #00111a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00293c;
+  border-radius: 10px;
+}
+
 body {
   color: white;
   cursor: default;
@@ -12,7 +27,7 @@ body {
 
 @layer components {
   .button_default {
-    @apply bg-slate-customAccent  px-8 py-2 rounded-md cursor-pointer text-xl items-center flex w-fit;
+    @apply bg-slate-customAccent  px-8 py-2 rounded-md cursor-pointer text-base items-center flex w-fit;
   }
 
   .center {
@@ -30,9 +45,28 @@ body {
   .buttonNav {
     @apply hover:bg-slate-customAccent px-4 py-2 rounded-md hover:translate-x-4 duration-500 cursor-pointer  text-xl text-slate-400 items-center flex lg:w-44;
   }
+  .stat-card-light {
+    @apply text-black bg-white border-2 border-slate-100 shadow-sm w-full rounded-lg px-4 py-2 flex flex-col justify-center duration-300;
+  }
 
-  .stat-card {
-    @apply bg-slate-customMedium border-2 border-slate-customMediumAccent w-full rounded-lg px-4 py-2 flex flex-col justify-center;
+  .stat-card-dark {
+    @apply text-white bg-slate-customMedium border-2 border-slate-customBorder w-full rounded-lg px-4 py-2 flex flex-col justify-center;
+  }
+
+  .display-card-light {
+    @apply text-black bg-white border-2 border-slate-100 w-full rounded-lg px-4 py-2 duration-300;
+  }
+
+  .display-card-dark {
+    @apply text-white bg-slate-customMedium border-2 border-slate-customBorder w-full rounded-lg px-4 py-2;
+  }
+
+  .form-light {
+    @apply text-black bg-white border-2 border-slate-100 w-full rounded-lg px-4 py-2 duration-300;
+  }
+
+  .form-dark {
+    @apply text-white bg-slate-customMedium border-2 border-slate-customBorder w-full rounded-lg px-4 py-2;
   }
 
   .center-horizontal {
@@ -42,13 +76,10 @@ body {
   .faded-text {
     @apply text-slate-400;
   }
-}
 
-.buttonNav:focus,
-.buttonNav:active {
-  outline: none; /* Remove default focus outline */
-  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* Example focus style */
-  transform: translateX(4px); /* Example active style */
+  .button_purple {
+    @apply text-white bg-purple-700 px-8 py-2 rounded-md cursor-pointer text-base items-center flex w-fit;
+  }
 }
 
 h1 {
@@ -69,4 +100,57 @@ p {
 
 a {
   font-size: medium;
+}
+
+.for-dark-theme {
+  @apply bg-slate-customDark;
+}
+
+.for-light-theme {
+  @apply bg-slate-customLight;
+}
+
+.label {
+  width: 60px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background: #000000;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8),
+    inset 0 -1px 5px rgba(255, 255, 255, 0.8);
+  transition: 0.3s ease-in-out;
+}
+
+.label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  background: #f0f0f0;
+  transition: 0.3s ease-in-out;
+}
+
+.input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.input:checked + label {
+  background: #f0f0f0;
+}
+
+.input:checked + label::after {
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+  background: #000000;
+}
+
+.label:active::after {
+  width: 30px;
 }

@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TotalPnl from "./TotalPnl";
 import ProfitFactor from "./ProfitFactor";
 import Wins from "./Wins";
 import Losses from "./Losses";
 
-const Stats = () => {
+const Stats = ({ darkMode, trades, pnlTotal, pnlTotalLosses, user }) => {
+  const [userTrades, setUserTrades] = useState([]);
+
+  const getUserTradeLength = trades.filter((trade) => trade.userId === user.id);
+
+  useEffect(() => {
+    setUserTrades(getUserTradeLength);
+  }, [trades]);
+
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
-      <TotalPnl title="Total PnL" subheading="Trades in total = ??" />
-      <ProfitFactor title="Profit Factor" subheading="Trades in total = ??" />
-      <Wins title="Average winning trade" subheading="Trades in total = ??" />
-      <Losses title="Average losing trade" subheading="Trades in total = ??" />
-      {/* <div className="bg-slate-customMedium border-2 border-slate-customMediumLight w-[25%] h-full rounded-lg"></div> */}
+    <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+      <TotalPnl
+        pnlTotal={pnlTotal}
+        darkMode={darkMode}
+        title="Total PnL"
+        subheading={`Trades in total = ${userTrades.length}`}
+      />
+      <ProfitFactor
+        pnlTotal={pnlTotal}
+        pnlTotalLosses={pnlTotalLosses}
+        title="Profit Factor"
+      />
+      <Wins pnlTotal={pnlTotal} trades={trades} title="Avg winning trade" />
+      <Losses
+        pnlTotalLosses={pnlTotalLosses}
+        trades={trades}
+        title="Avg losing trade"
+      />
     </section>
   );
 };

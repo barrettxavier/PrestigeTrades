@@ -1,9 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
-const Logout = () => {
+const Logout = ({ darkMode }) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+    // window.location.reload();
+  };
+
   return (
-    <div className="w-full flex justify-center">
-      <button className="absolute bottom-14 duration-300 hover:bg-slate-customAccent px-4 py-2 rounded-md cursor-pointer items-center flex text-md">
+    <div className={`w-full flex justify-center ${darkMode ? "dark" : ""}`}>
+      <button
+        className="absolute bottom-14 button_purple"
+        onClick={handleLogout}
+      >
         Logout
       </button>
     </div>

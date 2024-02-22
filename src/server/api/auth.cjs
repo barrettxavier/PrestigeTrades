@@ -4,28 +4,35 @@ const bcrypt = require("bcrypt");
 const prisma = require("../client.cjs");
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
-
-  const user = await prisma.user.findUnique({
-    where: {
-      username,
-    },
-  });
-
-  if (!user) {
-    return res.status(401).json({ message: "Invalid username or password" });
+  if (!username || !password) {
+    res.status(401).send({ message: "Incorrect username or password" });
+    return;
   }
 
-  const match = await bcrypt.compare(password, user.password);
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
 
-  if (!match) {
-    return res.status(401).json({ message: "Invalid username or password" });
+    const isValid = await bcrypt.compare(password, user.password);
+
+    if (!isValid) {
+      res.status(401).send({ message: "Not authorized!" });
+      return;
+    }
+
+    const token = jwt.sign(
+      { id: user.id, username: user.username },
+      process.env.JWT_SECRET
+    );
+    res.status(200).send({ token });
+  } catch (error) {
+    console.error(error);
   }
-
-  const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET);
-
-  res.json({ token });
 });
 
 router.post("/register", async (req, res, next) => {

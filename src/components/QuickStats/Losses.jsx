@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Losses = ({ title, subheading }) => {
+const Losses = ({ title, trades, pnlTotalLosses }) => {
+  const [numOfLosingTrades, setNumOfLosingTrades] = useState(0);
+  const [avgLosingTrade, setAvgLosingTrade] = useState(0);
+  const [lossPercent, setLossPercent] = useState(0);
+
+  useEffect(() => {
+    const losingTrades = trades.filter(
+      (trade) =>
+        (trade.callOrPut === "PUT" && trade.exitPrice > trade.entryPrice) ||
+        (trade.callOrPut === "CALL" && trade.exitPrice < trade.entryPrice)
+    );
+    setNumOfLosingTrades(losingTrades.length);
+  }, [trades]);
+
+  useEffect(() => {
+    if (numOfLosingTrades > 0) {
+      const avgLosingTrade = pnlTotalLosses / numOfLosingTrades;
+      setAvgLosingTrade(avgLosingTrade);
+    } else {
+      setAvgLosingTrade(0);
+    }
+    const lossPercent = (numOfLosingTrades / trades.length) * 100;
+    setLossPercent(lossPercent);
+  }, [numOfLosingTrades, pnlTotalLosses]);
+
   return (
-    <div className="stat-card">
-      <h4>{title}</h4>
-      <h2>$</h2>
-      <p>{subheading}</p>
+    <div className="relative stat-card-light dark:stat-card-dark">
+      <h3>{title}</h3>
+      <h2 className="py-2" style={{ color: "red" }}>
+        ${avgLosingTrade.toFixed(2)}
+      </h2>
+      <p>Trades lost: {numOfLosingTrades}</p>
+      <h2
+        className="text-4xl absolute right-4 bottom-auto"
+        style={{ color: "red" }}
+      >
+        {lossPercent.toFixed(0)}%
+      </h2>
     </div>
   );
 };
