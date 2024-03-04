@@ -49,6 +49,11 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
+        <p className="text-center mt-2 text-gray-500">
+          Demo Account:
+          <br /> username = Demo | password = 123
+        </p>
+
         <div className="w-full items-center justify-center flex flex-col mt-6">
           <button className="button_purple mb-6" type="submit">
             Log In

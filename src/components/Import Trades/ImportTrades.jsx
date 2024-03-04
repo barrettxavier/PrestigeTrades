@@ -31,12 +31,12 @@ const ImportTrades = ({ darkMode, setTrades, updateTrades }) => {
             <span className="font-bold mr-2"> + </span> Import trades
           </p>
         </button>
-        <p className="faded-text hidden md:inline-block">
+        {/* <p className="faded-text hidden md:inline-block">
           Last trade was imported :{" "}
           <span className="font-semibold text-black dark:text-white">
             Date and time
           </span>
-        </p>
+        </p> */}
       </div>
       <div>
         {toggleImportTrade ? (
