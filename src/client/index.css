@@ -43,7 +43,7 @@ body {
   }
 
   .buttonNav {
-    @apply hover:bg-slate-customAccent px-4 py-2 rounded-md hover:translate-x-4 duration-500 cursor-pointer  text-xl text-slate-400 items-center flex lg:w-44;
+    @apply hover:bg-slate-customAccent px-4 py-2 rounded-md  duration-500 cursor-pointer  text-xl text-slate-400 items-center flex;
   }
   .stat-card-light {
     @apply text-black bg-white border-2 border-slate-100 shadow-sm w-full rounded-lg px-4 py-2 flex flex-col justify-center duration-300;
@@ -131,7 +131,7 @@ a {
   width: 20px;
   height: 20px;
   border-radius: 25px;
-  background: #f0f0f0;
+  background: rgb(240, 240, 240);
   transition: 0.3s ease-in-out;
 }
 

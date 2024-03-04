@@ -117,8 +117,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/dashboard"
@@ -136,7 +136,7 @@ function App() {
           }
         />
         <Route
-          path="/tradelog"
+          path="/trade log"
           element={
             <TradeLog
               trades={trades}
@@ -147,7 +147,18 @@ function App() {
             />
           }
         />
-        <Route path="/dailyjournal" element={<DailyJournal />} />
+        <Route
+          path="/daily journal"
+          element={
+            <DailyJournal
+              trades={trades}
+              darkMode={darkMode}
+              user={user}
+              token={token}
+              toggleDarkMode={toggleDarkMode}
+            />
+          }
+        />
       </Routes>
     </>
   );

@@ -19,11 +19,11 @@ const DashBoard = ({
 }) => {
   return (
     <div
-      className={`w-screen h-full ml-20 lg:ml-[250px] ${
-        darkMode ? "dark" : ""
+      className={`w-screen h-full sm:ml-20 lg:ml-[200px]  ${
+        darkMode ? "" : "dark"
       }`}
     >
-      <div className=" bg-slate-50 dark:bg-slate-customDark">
+      <div className=" bg-slate-50 min:h-full  pb-10  dark:bg-slate-customDark">
         <div className="mx-6">
           <ImportTrades
             darkMode={darkMode}
@@ -42,12 +42,17 @@ const DashBoard = ({
           />
           <section className="grid grid-cols-1 xl:grid-cols-[1fr,2fr] gap-6">
             <div className="flex flex-col gap-6">
-              <NetDailyPnl darkMode={darkMode} />
+              <NetDailyPnl
+                darkMode={darkMode}
+                pnlTotal={pnlTotal}
+                trades={trades}
+                pnlTotalLosses={pnlTotalLosses}
+              />
               <DashboardLog trades={trades} darkMode={darkMode} />
             </div>
             <div className="flex flex-col gap-6">
-              <LineChart darkMode={darkMode} />
-              <CalendarPnL darkMode={darkMode} />
+              <LineChart darkMode={darkMode} trades={trades} />
+              <CalendarPnL darkMode={darkMode} trades={trades} />
             </div>
           </section>
         </div>

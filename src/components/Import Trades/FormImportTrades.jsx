@@ -3,9 +3,9 @@ import axios from "axios";
 
 const FormImportTrades = ({ darkMode, user, updateTrades }) => {
   const [ticker, setTicker] = useState("");
-  const [quantity, setQuantity] = useState(0);
-  const [entryPrice, setEntryPrice] = useState(0);
-  const [exitPrice, setExitPrice] = useState(0);
+  const [quantity, setQuantity] = useState("Quantity");
+  const [entryPrice, setEntryPrice] = useState("Entry Price");
+  const [exitPrice, setExitPrice] = useState("Exit Price");
   const [callOrPut, setCallOrPut] = useState("");
   const [date, setDate] = useState("");
 
@@ -32,9 +32,9 @@ const FormImportTrades = ({ darkMode, user, updateTrades }) => {
       if (response.status === 201) {
         updateTrades(response.data);
         setTicker("");
-        setQuantity(0);
-        setEntryPrice(0);
-        setExitPrice(0);
+        setQuantity("Quantity");
+        setEntryPrice("Entry Price");
+        setExitPrice("Exit Price");
         setCallOrPut("");
         setDate("");
       }
@@ -44,15 +44,15 @@ const FormImportTrades = ({ darkMode, user, updateTrades }) => {
   };
 
   return (
-    <div className={`${darkMode ? "dark" : ""}`}>
+    <div className={`${darkMode ? "" : "dark"}`}>
       <form
         action=""
-        className="w-full min-h-32 form-light dark:form-dark mb-6 grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-8 items-center justify-center py-8"
+        className=" w-full min-h-32 form-light dark:form-dark mb-6 grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-8 items-center justify-center py-8"
         onSubmit={importTrade}
       >
         <input
           className="p-2 rounded-md bg-slate-200 dark:bg-white dark:text-black dark:outline-purple-700"
-          type="date"
+          type="text"
           placeholder="Date"
           value={date}
           onChange={(e) => setDate(e.target.value)}

@@ -24,7 +24,7 @@ const Login = () => {
   };
 
   const handleClickHereBtn = () => {
-    navigate("/");
+    navigate("/register");
   };
 
   return (

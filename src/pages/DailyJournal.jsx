@@ -1,8 +1,16 @@
-const DailyJournal = () => {
+import NavBanner from "../components/NavBanner";
+
+const DailyJournal = ({ darkMode, toggleDarkMode, user, token }) => {
   return (
-    <div className="flex">
-      <div className="w-screen h-screen ml-20 lg:ml-[250px] bg-slate-customDark">
-        Daily Journal
+    <div className={`h-full  ${darkMode ? "" : "dark"}`}>
+      <NavBanner
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        user={user}
+        token={token}
+      />
+      <div className="h-full min-h-screen md:ml-20 lg:ml-[200px] bg-slate-50 dark:bg-slate-customDark">
+        <div className="pb-8"></div>
       </div>
     </div>
   );

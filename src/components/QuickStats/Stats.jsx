@@ -4,13 +4,11 @@ import ProfitFactor from "./ProfitFactor";
 import Wins from "./Wins";
 import Losses from "./Losses";
 
-const Stats = ({ darkMode, trades, pnlTotal, pnlTotalLosses, user }) => {
+const Stats = ({ darkMode, trades, pnlTotal, pnlTotalLosses }) => {
   const [userTrades, setUserTrades] = useState([]);
-
-  const getUserTradeLength = trades.filter((trade) => trade.userId === user.id);
-
   useEffect(() => {
-    setUserTrades(getUserTradeLength);
+    const totalTradesTaken = trades.length;
+    setUserTrades(totalTradesTaken);
   }, [trades]);
 
   return (
@@ -19,7 +17,7 @@ const Stats = ({ darkMode, trades, pnlTotal, pnlTotalLosses, user }) => {
         pnlTotal={pnlTotal}
         darkMode={darkMode}
         title="Total PnL"
-        subheading={`Trades in total = ${userTrades.length}`}
+        subheading={`Trades in total = ${userTrades}`}
       />
       <ProfitFactor
         pnlTotal={pnlTotal}

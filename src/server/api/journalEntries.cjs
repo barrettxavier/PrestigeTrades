@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const prisma = require("../client.cjs");
 
+// GET /api/journalEntries
 router.get("/", async (req, res, next) => {
   try {
-    const journalEntries = await prisma.journalEntry.findMany();
+    const journalEntries = await prisma.journalEntries.findMany();
     res.status(200).send(journalEntries);
   } catch (error) {
     console.error(error);
@@ -14,7 +15,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
-    const journalEntry = await prisma.journalEntry.findUnique({
+    const journalEntry = await prisma.journalEntries.findUnique({
       where: {
         id: +id,
       },
@@ -29,7 +30,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   const { entry, userId, tradeId } = req.body;
   try {
-    const journalEntry = await prisma.journalEntry.create({
+    const journalEntry = await prisma.journalEntries.create({
       data: {
         entry,
         userId,
@@ -46,7 +47,7 @@ router.put("/:id", async (req, res, next) => {
   const { id } = req.params;
   const { entry, userId, tradeId } = req.body;
   try {
-    const journalEntry = await prisma.journalEntry.update({
+    const journalEntry = await prisma.journalEntries.update({
       where: {
         id: +id,
       },
@@ -65,7 +66,7 @@ router.put("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
-    const journalEntry = await prisma.journalEntry.delete({
+    const journalEntry = await prisma.journalEntries.delete({
       where: {
         id: +id,
       },

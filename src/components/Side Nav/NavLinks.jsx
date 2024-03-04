@@ -3,16 +3,16 @@ import LinkButton from "./Link";
 
 const NavLinks = ({ darkMode }) => {
   return (
-    <ul className="flex flex-col gap-2 my-8">
+    <ul className={`flex flex-col gap-2 my-8 ${darkMode ? "" : "dark"}`}>
       <LinkButton
         name="Dashbord"
         icon={Home}
         url="/dashboard"
         darkMode={darkMode}
       />
-      <LinkButton name="Daily Journal" icon={BarChart2} url="/dailyjournal" />
-      <LinkButton name="Trade Log" icon={ScrollText} url="/tradelog" />
-      <LinkButton name="Strategies" icon={Waypoints} />
+      {/* <LinkButton name="Daily Journal" icon={BarChart2} url="/daily journal" /> */}
+      <LinkButton name="Trade Log" icon={ScrollText} url="/trade log" />
+      {/* <LinkButton name="Strategies" icon={Waypoints} /> */}
     </ul>
   );
 };

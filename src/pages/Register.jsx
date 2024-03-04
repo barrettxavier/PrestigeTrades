@@ -15,15 +15,19 @@ const Register = () => {
       const response = await axios.post("auth/register", {
         username,
         password,
-        email,
       });
+      console.log(response);
+      localStorage.setItem("token", response.data.token);
+      if (response.status === 201) {
+        navigate("/dashboard");
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleClickHereBtn = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -49,12 +53,12 @@ const Register = () => {
           type="password"
           placeholder="Password"
         />
-        <input
+        {/* <input
           className="py-1 px-2 rounded-md text-black outline-none my-2"
           onChange={(e) => setEmail(e.target.value)}
           type="text"
           placeholder="Email"
-        />
+        /> */}
         <div className="w-full flex flex-col items-center justify-center  mt-6">
           <button className="button_purple mb-6" type="submit">
             Register

@@ -36,7 +36,7 @@ const Wins = ({ title, trades, pnlTotal }) => {
         <p>Trades won: {numOfWinningTrades}</p>
       </p>
       <h2
-        className="text-4xl absolute right-4 bottom-auto"
+        className="text-2xl absolute right-4 bottom-auto xl:bottom-2 bg-slate-200 dark:bg-slate-customMediumAccent rounded-full size-20 flex items-center justify-center"
         style={{ color: "green" }}
       >
         {winPercent.toFixed(0)}%
