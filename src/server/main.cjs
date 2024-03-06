@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const ViteExpress = require("vite-express");
 require("dotenv").config();
-// const path = require("path");
+const path = require("path");
 
 const app = express();
 const port = 3000;
@@ -12,10 +12,13 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// app.use("/dist/", express.static(path.join(__dirname, "../../dist/")));
-// app.get("/", (req, res) =>
-//   res.sendFile(path.join(__dirname, "../../dist/index.html"))
-// );
+app.use("/dist/", express.static(path.join(__dirname, "../../dist/")));
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "../../dist/index.html"))
+);
+app.get("/assets/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../dist/assets", req.params[0]));
+});
 
 // Routes
 app.use("/api", require("./api/index.cjs"));
