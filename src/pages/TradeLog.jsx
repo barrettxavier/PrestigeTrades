@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBanner from "../components/NavBanner";
 import { DateTime } from "luxon";
-
 import LogPnlDisplay from "../components/Trade Log/LogPnLDisplay";
-import { ChevronLeft, ChevronRight, Edit } from "lucide-react";
+import { ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import axios from "axios";
 
 const TradeLog = ({ trades, darkMode, user, token, toggleDarkMode }) => {
+  const [selectedTradeId, setSelectedTradeId] = useState(null);
+  const [journalEntries, setJournalEntries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const tradesPerPage = 20;
 
@@ -27,6 +29,19 @@ const TradeLog = ({ trades, darkMode, user, token, toggleDarkMode }) => {
   const endIndex = startIndex + tradesPerPage;
   const displayedTrades = sortedTrades.slice(startIndex, endIndex);
 
+  // Get journal entries
+  useEffect(() => {
+    const getJournalEntries = async () => {
+      const response = await axios.get("/api/journalEntries");
+      setJournalEntries(response.data);
+    };
+    getJournalEntries();
+  }, []);
+
+  const handleCommentToggle = (tradeId) => {
+    setSelectedTradeId(tradeId === selectedTradeId ? null : tradeId);
+  };
+
   return (
     <div className={`h-full  ${darkMode ? "" : "dark"}`}>
       <NavBanner
@@ -45,29 +60,50 @@ const TradeLog = ({ trades, darkMode, user, token, toggleDarkMode }) => {
             <p>Exit Price</p>
             <p>Call/Put</p>
             <p>PnL</p>
-            <p>Edit</p>
+            <p>Comment</p>
           </div>
+
           <hr className="my-4 opacity-20" />
 
           {displayedTrades.map((trade) => (
-            <div
-              className="grid grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 px-6 gap-4 py-6 my-2 text-black dark:text-white bg-slate-200 dark:bg-slate-customMedium hover:bg-slate-customAccent dark:hover:bg-slate-customAccent duration-500 text-center rounded-sm"
-              key={trade.id}
-            >
-              <p className="hidden lg:inline">
-                {DateTime.fromISO(trade.date).toFormat("MM-dd-yyyy")}
-              </p>
-              <p>{trade.ticker}</p>
-              <p>{trade.quantity}</p>
-              <p>{trade.entryPrice}</p>
-              <p>{trade.exitPrice}</p>
-              <p>{trade.callOrPut}</p>
-              <LogPnlDisplay trade={trade} />
-              <div className="flex justify-center cursor-pointer">
-                <Edit size={16} />
+            <div className="flex flex-col" key={trade.id}>
+              <div className="grid grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 px-6 gap-4 py-6 my-2 text-black dark:text-white bg-slate-200 dark:bg-slate-customMedium hover:bg-slate-customAccent dark:hover:bg-slate-customAccent duration-500 text-center rounded-sm">
+                <p className="hidden lg:inline">
+                  {DateTime.fromISO(trade.date).toFormat("MM-dd-yyyy")}
+                </p>
+                <p>{trade.ticker}</p>
+                <p>{trade.quantity}</p>
+                <p>{trade.entryPrice}</p>
+                <p>{trade.exitPrice}</p>
+                <p>{trade.callOrPut}</p>
+                <LogPnlDisplay trade={trade} />
+                <div className="flex justify-center cursor-pointer">
+                  <MessageCircle
+                    size={16}
+                    onClick={() => handleCommentToggle(trade.id)}
+                  />
+                </div>
               </div>
+
+              {selectedTradeId === trade.id && (
+                <div>
+                  {journalEntries.map((entry) => {
+                    if (entry.tradeId === trade.id) {
+                      return (
+                        <div
+                          className="flex px-12 py-6 my-2 justify-start text-black dark:text-white bg-slate-200 dark:bg-slate-customMedium"
+                          key={entry.id}
+                        >
+                          <p>Journal Entry: {entry.entry}</p>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              )}
             </div>
           ))}
+
           <div className="relative w-full pb-40">
             <button
               className="absolute button_default px-2 top-20 right-10"

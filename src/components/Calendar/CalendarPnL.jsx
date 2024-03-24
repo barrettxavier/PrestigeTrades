@@ -63,9 +63,9 @@ const CalendarPnL = ({ trades, darkMode }) => {
 
     const calculatePnL = (trade) => {
       if (trade.callOrPut === "CALL") {
-        return (trade.exitPrice - trade.entryPrice) * trade.quantity * 50;
+        return (trade.exitPrice - trade.entryPrice) * 4 * trade.quantity * 5;
       } else if (trade.callOrPut === "PUT") {
-        return (trade.entryPrice - trade.exitPrice) * trade.quantity * 50;
+        return (trade.entryPrice - trade.exitPrice) * 4 * trade.quantity * 5;
       }
       return 0;
     };

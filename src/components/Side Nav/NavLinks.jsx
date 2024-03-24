@@ -10,9 +10,12 @@ const NavLinks = ({ darkMode }) => {
         url="/dashboard"
         darkMode={darkMode}
       />
-      {/* <LinkButton name="Daily Journal" icon={BarChart2} url="/daily journal" /> */}
       <LinkButton name="Trade Log" icon={ScrollText} url="/trade log" />
-      {/* <LinkButton name="Strategies" icon={Waypoints} /> */}
+      {/* <LinkButton
+        name="Journal Entry"
+        icon={ScrollText}
+        url="/journal entries"
+      /> */}
     </ul>
   );
 };

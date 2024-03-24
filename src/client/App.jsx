@@ -1,14 +1,11 @@
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route } from "react-router";
 import Home from "../pages/Home";
 import TradeLog from "../pages/TradeLog";
-import DailyJournal from "../pages/DailyJournal";
-import NavBar from "../pages/NavBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Banner from "../components/TopBanner/Banner";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import { useNavigate } from "react-router";
+import JournalEntry from "../pages/JournalEntry";
 
 function App() {
   const [trades, setTrades] = useState([]);
@@ -148,14 +145,13 @@ function App() {
           }
         />
         <Route
-          path="/daily journal"
+          path="/journal entries"
           element={
-            <DailyJournal
-              trades={trades}
+            <JournalEntry
               darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
               user={user}
               token={token}
-              toggleDarkMode={toggleDarkMode}
             />
           }
         />
