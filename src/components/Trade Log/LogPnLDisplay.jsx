@@ -3,8 +3,8 @@ import React from "react";
 const LogPnlDisplay = ({ trade }) => {
   const pnlValue =
     trade.callOrPut === "CALL"
-      ? (trade.exitPrice - trade.entryPrice) * trade.quantity * 50
-      : (trade.entryPrice - trade.exitPrice) * trade.quantity * 50;
+      ? (trade.exitPrice - trade.entryPrice) * 4 * trade.quantity * 5
+      : (trade.entryPrice - trade.exitPrice) * 4 * trade.quantity * 5;
 
   const color =
     (trade.callOrPut === "CALL" && pnlValue > 0) ||

@@ -54,7 +54,7 @@ function App() {
     // Calculate pnlCalls for call trades
     const pnlCalls = trades.map((trade) => {
       if (trade.callOrPut === "CALL") {
-        return (trade.exitPrice - trade.entryPrice) * trade.quantity * 50;
+        return (trade.exitPrice - trade.entryPrice) * 4 * trade.quantity * 5;
       } else {
         return 0;
       }
@@ -65,7 +65,7 @@ function App() {
     // Calculate pnlPuts for put trades
     const pnlPuts = trades.map((trade) => {
       if (trade.callOrPut === "PUT" && trade.exitPrice < trade.entryPrice) {
-        return (trade.entryPrice - trade.exitPrice) * trade.quantity * 50;
+        return (trade.entryPrice - trade.exitPrice) * 4 * trade.quantity * 5;
       } else {
         return 0;
       }
@@ -88,7 +88,7 @@ function App() {
           trade.callOrPut === "CALL" && trade.exitPrice < trade.entryPrice
       )
       .map(
-        (trade) => (trade.entryPrice - trade.exitPrice) * trade.quantity * 50
+        (trade) => (trade.entryPrice - trade.exitPrice) * 4 * trade.quantity * 5
       );
     callsLosses = callsLoss.reduce((a, b) => a + b, 0);
 
@@ -98,7 +98,7 @@ function App() {
           trade.callOrPut === "PUT" && trade.exitPrice > trade.entryPrice
       )
       .map(
-        (trade) => (trade.exitPrice - trade.entryPrice) * trade.quantity * 50
+        (trade) => (trade.exitPrice - trade.entryPrice) * 4 * trade.quantity * 5
       );
     putsLosses = putsLoss.reduce((a, b) => a + b, 0);
 
