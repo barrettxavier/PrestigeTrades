@@ -1,4 +1,10 @@
-import { Home, BarChart2, ScrollText, Waypoints } from "lucide-react";
+import {
+  Home,
+  BarChart2,
+  ScrollText,
+  Waypoints,
+  CandlestickChart,
+} from "lucide-react";
 import LinkButton from "./Link";
 
 const NavLinks = ({ darkMode }) => {
@@ -11,6 +17,11 @@ const NavLinks = ({ darkMode }) => {
         darkMode={darkMode}
       />
       <LinkButton name="Trade Log" icon={ScrollText} url="/trade log" />
+      <LinkButton
+        name="Tradingview"
+        icon={CandlestickChart}
+        url="/tradingview"
+      />
       {/* <LinkButton
         name="Journal Entry"
         icon={ScrollText}

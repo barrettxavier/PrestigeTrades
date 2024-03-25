@@ -6,6 +6,7 @@ import axios from "axios";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import JournalEntry from "../pages/JournalEntry";
+import Tradingview from "../pages/Tradingview";
 
 function App() {
   const [trades, setTrades] = useState([]);
@@ -148,6 +149,17 @@ function App() {
           path="/journal entries"
           element={
             <JournalEntry
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
+              user={user}
+              token={token}
+            />
+          }
+        />
+        <Route
+          path="tradingview"
+          element={
+            <Tradingview
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
               user={user}
