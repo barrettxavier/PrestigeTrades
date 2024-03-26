@@ -8,7 +8,7 @@ const LineChart = ({ darkMode, trades }) => {
   useEffect(() => {
     const sortedTrades = [...trades]
       .sort((a, b) => parseISO(a.date) - parseISO(b.date))
-      .slice(-20);
+      .slice(-10);
 
     const calculateDayPnL = () => {
       const dayPnL = {};
