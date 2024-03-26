@@ -90,7 +90,6 @@ async function main() {
         date: new Date("03/7/2024"),
         userId: demo.id,
       },
-
       {
         ticker: "ES",
         quantity: 3,
@@ -100,181 +99,180 @@ async function main() {
         date: new Date("03/7/2024"),
         userId: demo.id,
       },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4026.25,
+      //   exitPrice: 4023.5,
+      //   callOrPut: "CALL",
+      //   date: new Date("03/11/2024"),
+      //   userId: demo.id,
+      // },
+      // {
+      //   ticker: "ES",
+      //   quantity: 4,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4027.25,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/12/2024"),
+      //   userId: demo.id,
+      // },
+      // {
+      //   ticker: "ES",
+      //   quantity: 2,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4017.75,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/14/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4026.25,
-        exitPrice: 4023.5,
-        callOrPut: "CALL",
-        date: new Date("03/11/2024"),
-        userId: demo.id,
-      },
-      {
-        ticker: "ES",
-        quantity: 4,
-        entryPrice: 4023.25,
-        exitPrice: 4027.25,
-        callOrPut: "PUT",
-        date: new Date("03/12/2024"),
-        userId: demo.id,
-      },
-      {
-        ticker: "ES",
-        quantity: 2,
-        entryPrice: 4023.25,
-        exitPrice: 4017.75,
-        callOrPut: "PUT",
-        date: new Date("03/14/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4026.25,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/15/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4023.25,
-        exitPrice: 4026.25,
-        callOrPut: "PUT",
-        date: new Date("03/15/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4017.75,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/18/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4023.25,
-        exitPrice: 4017.75,
-        callOrPut: "PUT",
-        date: new Date("03/18/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4026.25,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/19/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4023.25,
-        exitPrice: 4026.25,
-        callOrPut: "PUT",
-        date: new Date("03/19/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4022.25,
+      //   exitPrice: 4019.75,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/20/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4022.25,
-        exitPrice: 4019.75,
-        callOrPut: "PUT",
-        date: new Date("03/20/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4025.25,
+      //   exitPrice: 4026.25,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/22/2024"),
+      //   userId: demo.id,
+      // },
 
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4025.25,
-        exitPrice: 4026.25,
-        callOrPut: "PUT",
-        date: new Date("03/22/2024"),
-        userId: demo.id,
-      },
-
-      {
-        ticker: "ES",
-        quantity: 1,
-        entryPrice: 4023.25,
-        exitPrice: 4015.75,
-        callOrPut: "PUT",
-        date: new Date("03/25/2024"),
-        userId: demo.id,
-      },
+      // {
+      //   ticker: "ES",
+      //   quantity: 1,
+      //   entryPrice: 4023.25,
+      //   exitPrice: 4015.75,
+      //   callOrPut: "PUT",
+      //   date: new Date("03/25/2024"),
+      //   userId: demo.id,
+      // },
     ],
   });
 
-  const journalEntries = await prisma.journalEntries.createMany({
-    data: [
-      {
-        entry: "I made a great trade today",
-        userId: demo.id,
-        tradeId: 10,
-      },
-      {
-        entry: "Patience paid off today",
-        userId: demo.id,
-        tradeId: 12,
-      },
-      {
-        entry: "Overall had good execution on this trade",
-        userId: demo.id,
-        tradeId: 14,
-      },
-      {
-        entry: "Entered a bit early, resulted in more drawdown than expected",
-        userId: demo.id,
-        tradeId: 11,
-      },
-      {
-        entry: "Waited for setup, very nice trade",
-        userId: demo.id,
-        tradeId: 16,
-      },
-      {
-        entry: "Took a small loss today, but it was a good trade",
-        userId: demo.id,
-        tradeId: 15,
-      },
-      {
-        entry: "Choppy in the morning, should have waited for better setup",
-        userId: demo.id,
-        tradeId: 13,
-      },
-      {
-        entry: "Entered a bit early, resulted in more drawdown than expected",
-        userId: demo.id,
-        tradeId: 1,
-      },
-      {
-        entry: "Waited for setup, very nice trade",
-        userId: demo.id,
-        tradeId: 2,
-      },
-      {
-        entry: "Took a small loss today, but it was a good trade",
-        userId: demo.id,
-        tradeId: 3,
-      },
-      {
-        entry: "Choppy in the morning, should have waited for better setup",
-        userId: demo.id,
-        tradeId: 4,
-      },
-      {
-        entry: "Entered a bit early, resulted in more drawdown than expected",
-        userId: demo.id,
-        tradeId: 5,
-      },
-      {
-        entry: "Waited for setup, very nice trade",
-        userId: demo.id,
-        tradeId: 6,
-      },
-      {
-        entry: "Took a small loss today, but it was a good trade",
-        userId: demo.id,
-        tradeId: 7,
-      },
-      {
-        entry: "Choppy in the morning, should have waited for better setup",
-        userId: demo.id,
-        tradeId: 8,
-      },
-      {
-        entry: "Entered a bit early, resulted in more drawdown than expected",
-        userId: demo.id,
-        tradeId: 9,
-      },
-    ],
-  });
+  // const journalEntries = await prisma.journalEntries.createMany({
+  //   data: [
+  //     {
+  //       entry: "I made a great trade today",
+  //       userId: demo.id,
+  //       tradeId: 10,
+  //     },
+  //     {
+  //       entry: "Patience paid off today",
+  //       userId: demo.id,
+  //       tradeId: 12,
+  //     },
+  //     {
+  //       entry: "Overall had good execution on this trade",
+  //       userId: demo.id,
+  //       tradeId: 14,
+  //     },
+  //     {
+  //       entry: "Entered a bit early, resulted in more drawdown than expected",
+  //       userId: demo.id,
+  //       tradeId: 11,
+  //     },
+  //     {
+  //       entry: "Waited for setup, very nice trade",
+  //       userId: demo.id,
+  //       tradeId: 16,
+  //     },
+  //     {
+  //       entry: "Took a small loss today, but it was a good trade",
+  //       userId: demo.id,
+  //       tradeId: 15,
+  //     },
+  //     {
+  //       entry: "Choppy in the morning, should have waited for better setup",
+  //       userId: demo.id,
+  //       tradeId: 13,
+  //     },
+  //     {
+  //       entry: "Entered a bit early, resulted in more drawdown than expected",
+  //       userId: demo.id,
+  //       tradeId: 1,
+  //     },
+  //     {
+  //       entry: "Waited for setup, very nice trade",
+  //       userId: demo.id,
+  //       tradeId: 2,
+  //     },
+  //     {
+  //       entry: "Took a small loss today, but it was a good trade",
+  //       userId: demo.id,
+  //       tradeId: 3,
+  //     },
+  //     {
+  //       entry: "Choppy in the morning, should have waited for better setup",
+  //       userId: demo.id,
+  //       tradeId: 4,
+  //     },
+  //     {
+  //       entry: "Entered a bit early, resulted in more drawdown than expected",
+  //       userId: demo.id,
+  //       tradeId: 5,
+  //     },
+  //     {
+  //       entry: "Waited for setup, very nice trade",
+  //       userId: demo.id,
+  //       tradeId: 6,
+  //     },
+  //     {
+  //       entry: "Took a small loss today, but it was a good trade",
+  //       userId: demo.id,
+  //       tradeId: 7,
+  //     },
+  //     {
+  //       entry: "Choppy in the morning, should have waited for better setup",
+  //       userId: demo.id,
+  //       tradeId: 8,
+  //     },
+  //     {
+  //       entry: "Entered a bit early, resulted in more drawdown than expected",
+  //       userId: demo.id,
+  //       tradeId: 9,
+  //     },
+  //   ],
+  // });
 }
 
 main()
